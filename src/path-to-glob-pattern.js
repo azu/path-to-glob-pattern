@@ -4,18 +4,17 @@
 // ESLint
 // Copyright JS Foundation and other contributors, https://js.foundation
 "use strict";
-const glob = require("glob");
 const path = require("path");
 const fs = require("fs");
 const shell = require("shelljs");
 /**
  * Replace Windows with posix style paths
  *
- * @param {string} filepath   Path to convert
+ * @param {string} filePath   Path to convert
  * @returns {string}          Converted filepath
  */
-function convertPathToPosix(filepath) {
-    const normalizedFilePath = path.normalize(filepath);
+function convertPathToPosix(filePath) {
+    const normalizedFilePath = path.normalize(filePath);
     return normalizedFilePath.replace(/\\/g, "/");
 }
 
