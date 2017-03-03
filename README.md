@@ -1,6 +1,6 @@
 # path-to-glob-pattern [![Build Status](https://travis-ci.org/azu/path-to-glob-pattern.svg?branch=master)](https://travis-ci.org/azu/path-to-glob-pattern)
 
-Convert file path/directory to glob pattern.
+Convert file/directory path to glob pattern. 
 
 For example, 
 
