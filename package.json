@@ -10,7 +10,7 @@
     "src/"
   ],
   "name": "path-to-glob-pattern",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert file/directory path to glob pattern.",
   "main": "lib/path-to-glob-pattern.js",
   "scripts": {
