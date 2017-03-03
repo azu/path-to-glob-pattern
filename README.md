@@ -75,3 +75,9 @@ For bugs and feature requests, [please create an issue](https://github.com/azu/p
 ## License
 
 MIT © azu
+
+and 
+
+ESLint
+Copyright JS Foundation and other contributors, https://js.foundation
+https://github.com/eslint/eslint/blob/master/tests/lib/util/glob-util.js
