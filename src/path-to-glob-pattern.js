@@ -6,7 +6,6 @@
 "use strict";
 const path = require("path");
 const fs = require("fs");
-const shell = require("shelljs");
 /**
  * Replace Windows with posix style paths
  *
@@ -19,6 +18,13 @@ function convertPathToPosix(filePath) {
 }
 
 
+const isDirectory = (filepath) => {
+    try {
+        return fs.statSync(filepath).isDirectory()
+    } catch (error) {
+        return false;
+    }
+};
 /**
  * Checks if a provided path is a directory and returns a glob string matching
  * all files under that directory if so, the path itself otherwise.
@@ -63,7 +69,7 @@ function processPath(options) {
         let newPath = filePath;
         const resolvedPath = path.resolve(cwd, filePath);
 
-        if (shell.test("-d", resolvedPath)) {
+        if (isDirectory(resolvedPath)) {
             newPath = filePath.replace(/[/\\]$/, "") + suffix;
         }
 

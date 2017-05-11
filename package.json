@@ -41,9 +41,10 @@
     "babel-register": "^6.23.0",
     "cross-env": "^3.1.4",
     "mocha": "^3.2.0",
-    "power-assert": "^1.4.2"
+    "power-assert": "^1.4.2",
+    "shelljs": "^0.7.6"
   },
   "dependencies": {
-    "shelljs": "^0.7.6"
+
   }
 }
