@@ -1,4 +1,4 @@
-# path-to-glob-pattern [![Build Status](https://travis-ci.org/azu/path-to-glob-pattern.svg?branch=master)](https://travis-ci.org/azu/path-to-glob-pattern)
+# path-to-glob-pattern [![Actions Status: test](https://github.com/azu/path-to-glob-pattern/workflows/test/badge.svg)](https://github.com/azu/path-to-glob-pattern/actions?query=workflow%3A"test")
 
 Convert file/directory path to glob pattern. 
 
