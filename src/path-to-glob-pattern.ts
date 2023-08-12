@@ -27,12 +27,10 @@ const isDirectory = (filepath: string) => {
 };
 
 export type PathToGlobPatternOptions = {
-    options: {
-        // An array of accepted extensions
-        extensions: string[];
-        // cwd to use to resolve relative pathnames
-        cwd: string
-    };
+    // An array of accepted extensions
+    extensions: string[];
+    // cwd to use to resolve relative pathnames
+    cwd: string
 }
 
 /**
@@ -52,7 +50,7 @@ export type PathToGlobPatternOptions = {
  *                     matches all files with the provided extensions if
  *                     pathname is a directory.
  */
-export function pathToGlobPattern({ options }: PathToGlobPatternOptions) {
+export function pathToGlobPattern(options: PathToGlobPatternOptions) {
     const cwd = options.cwd;
     let extensions = options.extensions;
 

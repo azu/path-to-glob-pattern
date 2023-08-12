@@ -10,7 +10,7 @@ import fs from "fs";
 let fixtureDir: string;
 
 /**
- * Returns the path inside of the fixture directory.
+ * Returns the path inside the fixture directory.
  * @returns {string} The path inside the fixture directory.
  * @private
  */
@@ -20,10 +20,10 @@ function getFixturePath(...args: any[]) {
 }
 
 function pathsToGlobPatterns(patterns: string[], options: { extensions?: string[]; cwd?: string; } = {}) {
-    const processPatterns = pathToGlobPattern({options : {
+    const processPatterns = pathToGlobPattern({
         extensions: options.extensions || [],
         cwd: options.cwd || process.cwd()
-    }});
+    });
     return patterns.map(processPatterns);
 }
 
