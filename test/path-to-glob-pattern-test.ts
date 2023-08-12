@@ -20,10 +20,10 @@ function getFixturePath(...args: any[]) {
 }
 
 function pathsToGlobPatterns(patterns: string[], options: { extensions?: string[]; cwd?: string; } = {}) {
-    const processPatterns = pathToGlobPattern({
+    const processPatterns = pathToGlobPattern({options : {
         extensions: options.extensions || [],
         cwd: options.cwd || process.cwd()
-    });
+    }});
     return patterns.map(processPatterns);
 }
 

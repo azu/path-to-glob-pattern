@@ -3,7 +3,6 @@
 // https://github.com/eslint/eslint/blob/master/tests/lib/util/glob-util.js
 // ESLint
 // Copyright JS Foundation and other contributors, https://js.foundation
-"use strict";
 import path from "path";
 import fs from "fs";
 
@@ -27,6 +26,15 @@ const isDirectory = (filepath: string) => {
     }
 };
 
+export type PathToGlobPatternOptions = {
+    options: {
+        // An array of accepted extensions
+        extensions: string[];
+        // cwd to use to resolve relative pathnames
+        cwd: string
+    };
+}
+
 /**
  * Checks if a provided path is a directory and returns a glob string matching
  * all files under that directory if so, the path itself otherwise.
@@ -44,7 +52,7 @@ const isDirectory = (filepath: string) => {
  *                     matches all files with the provided extensions if
  *                     pathname is a directory.
  */
-export function pathToGlobPattern(options: { extensions: string[], cwd: string }) {
+export function pathToGlobPattern({ options }: PathToGlobPatternOptions) {
     const cwd = options.cwd;
     let extensions = options.extensions;
 
