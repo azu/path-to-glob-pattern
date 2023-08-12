@@ -1,6 +1,7 @@
 // MIT © 2017 azu
 "use strict";
-const pathToGlobPattern = require("./src/path-to-glob-pattern");
+import { pathToGlobPattern } from "./src/path-to-glob-pattern";
+
 const processPatternJs = pathToGlobPattern({
     extensions: ["js"],
     cwd: __dirname

@@ -1,32 +1,32 @@
 // MIT © 2017 azu
 "use strict";
-const pathToGlobPattern = require("../src/path-to-glob-pattern");
-const assert = require("assert");
-const path = require("path");
-const os = require("os");
-const sh = require("shelljs");
-const fs = require("fs");
-let fixtureDir;
+import { pathToGlobPattern } from "../src/path-to-glob-pattern";
+import assert from "assert";
+import path from "path";
+import os from "os";
+import sh from "shelljs";
+import fs from "fs";
+
+let fixtureDir: string;
 
 /**
  * Returns the path inside of the fixture directory.
  * @returns {string} The path inside the fixture directory.
  * @private
  */
-function getFixturePath() {
-    const args = Array.prototype.slice.call(arguments);
-
+function getFixturePath(...args: any[]) {
     args.unshift(fs.realpathSync(fixtureDir));
     return path.join.apply(path, args);
 }
 
-function pathsToGlobPatterns(patterns, options = {}) {
+function pathsToGlobPatterns(patterns: string[], options: { extensions?: string[]; cwd?: string; } = {}) {
     const processPatterns = pathToGlobPattern({
         extensions: options.extensions || [],
         cwd: options.cwd || process.cwd()
     });
     return patterns.map(processPatterns);
 }
+
 describe("path-to-glob-pattern.js", () => {
     before(() => {
         fixtureDir = `${os.tmpdir()}/eslint/tests/fixtures/`;

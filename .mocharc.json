@@ -1,3 +1,9 @@
 {
-	"require": ["@babel/register"]
+    "$schema": "https://json.schemastore.org/mocharc",
+    "require": [
+        "ts-node-test-register"
+    ],
+    "spec": [
+        "test/**/*.ts"
+    ]
 }
