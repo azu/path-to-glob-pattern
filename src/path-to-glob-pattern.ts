@@ -1,30 +1,40 @@
-// MIT © 2017 azu
+// MIT ©  azu
 // and
 // https://github.com/eslint/eslint/blob/master/tests/lib/util/glob-util.js
 // ESLint
 // Copyright JS Foundation and other contributors, https://js.foundation
-"use strict";
-const path = require("path");
-const fs = require("fs");
+import path from "path";
+import fs from "fs";
+
 /**
  * Replace Windows with posix style paths
  *
  * @param {string} filePath   Path to convert
  * @returns {string}          Converted filepath
  */
-function convertPathToPosix(filePath) {
+function convertPathToPosix(filePath: string) {
     const normalizedFilePath = path.normalize(filePath);
     return normalizedFilePath.replace(/\\/g, "/");
 }
 
 
-const isDirectory = (filepath) => {
+const isDirectory = (filepath: string) => {
     try {
         return fs.statSync(filepath).isDirectory()
     } catch (error) {
         return false;
     }
 };
+
+export type PathToGlobPatternOptions = {
+    options: {
+        // An array of accepted extensions
+        extensions: string[];
+        // cwd to use to resolve relative pathnames
+        cwd: string
+    };
+}
+
 /**
  * Checks if a provided path is a directory and returns a glob string matching
  * all files under that directory if so, the path itself otherwise.
@@ -42,7 +52,7 @@ const isDirectory = (filepath) => {
  *                     matches all files with the provided extensions if
  *                     pathname is a directory.
  */
-function processPath(options) {
+export function pathToGlobPattern({ options }: PathToGlobPatternOptions) {
     const cwd = options.cwd;
     let extensions = options.extensions;
 
@@ -65,7 +75,7 @@ function processPath(options) {
      * @returns {string} The glob path or the file path itself
      * @private
      */
-    return function(filePath) {
+    return function (filePath: string) {
         let newPath = filePath;
         const resolvedPath = path.resolve(cwd, filePath);
 
@@ -76,4 +86,3 @@ function processPath(options) {
         return convertPathToPosix(newPath);
     };
 }
-module.exports = processPath;

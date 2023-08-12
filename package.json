@@ -1,47 +1,53 @@
 {
-  "directories": {
-    "test": "test"
-  },
-  "author": "azu",
-  "license": "MIT",
-  "files": [
-    "bin/",
-    "lib/",
-    "src/"
-  ],
   "name": "path-to-glob-pattern",
   "version": "1.0.2",
   "description": "Convert file/directory path to glob pattern.",
-  "main": "lib/path-to-glob-pattern.js",
-  "scripts": {
-    "test": "mocha test/",
-    "build": "cross-env NODE_ENV=production babel src --out-dir lib --source-maps",
-    "watch": "babel src --out-dir lib --watch --source-maps",
-    "prepublish": "npm run --if-present build"
-  },
   "keywords": [
     "glob",
     "file",
     "path",
     "fs"
   ],
+  "homepage": "https://github.com/azu/path-to-glob-pattern",
+  "bugs": {
+    "url": "https://github.com/azu/path-to-glob-pattern/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/azu/path-to-glob-pattern.git"
   },
-  "bugs": {
-    "url": "https://github.com/azu/path-to-glob-pattern/issues"
+  "license": "MIT",
+  "author": "azu",
+  "main": "lib/path-to-glob-pattern.js",
+  "types": "lib/path-to-glob-pattern.d.ts",
+  "directories": {
+    "test": "test"
   },
-  "homepage": "https://github.com/azu/path-to-glob-pattern",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "prepublishOnly": "npm run build",
+    "prepublish": "npm run --if-present build",
+    "test": "mocha",
+    "example": "ts-node ./example.ts",
+    "watch": "tsc -p . --watch"
+  },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.4.10",
+    "@types/shelljs": "^0.8.12",
     "cross-env": "^7.0.3",
-    "mocha": "^9.2.1",
+    "mocha": "^10.2.0",
     "power-assert": "^1.4.2",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "ts-node": "^10.9.1",
+    "ts-node-test-register": "^10.0.0",
+    "typescript": "^5.1.6"
   },
-  "dependencies": {}
+  "packageManager": "yarn@1.22.19"
 }

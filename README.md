@@ -19,7 +19,7 @@ Install with [npm](https://www.npmjs.com/):
 `pathToGlobPattern` return process function.
 
 ```js
-const pathToGlobPattern = require("path-to-glob-pattern");
+import { pathToGlobPattern } from "path-to-glob-pattern";
 const processPatternJs = pathToGlobPattern({
     extensions: ["js"],
     cwd: __dirname
